@@ -10,13 +10,8 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
     $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello world!');
-        return $response;
-    });
-
-    $app->get('/hello/{name}', function ($request, $response, $args) {
-        $renderer = new PhpRenderer(__DIR__.'/../public/');
-        return $renderer->render($response, "hello.html", $args);
+        $renderer = new PhpRenderer(__DIR__.'/../public/client');
+        return $renderer->render($response, "index.html");
     });
 
     $app->group('/users', function (Group $group) {
