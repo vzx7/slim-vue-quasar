@@ -16,7 +16,7 @@ return function (App $app) {
 
     $app->get('/hello/{name}', function ($request, $response, $args) {
         $renderer = new PhpRenderer(__DIR__.'/../public/');
-        return $renderer->render($response, "hello.php", $args);
+        return $renderer->render($response, "hello.html", $args);
     });
 
     $app->group('/users', function (Group $group) {
